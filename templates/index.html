@@ -1,0 +1,37 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YOLOv8 Detection Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>🛠️ Live Pipeline Detection</h1>
+        <p>Detecting <span class="tag red">Corrosion</span>, <span class="tag orange">Fracture</span> and <span class="tag green">Healthy</span> pipelines in real time</p>
+        
+        <div class="video-box">
+            <img src="{{ url_for('video') }}" id="video-feed">
+            <div class="stream-button-wrapper">
+                <button id="streamBtn" class="stream-button">Start Streaming</button>
+            </div>
+        </div>
+
+        <footer>Developed by <strong>Sheraz</strong> 💻</footer>
+    </div>
+
+    <script>
+        document.getElementById("streamBtn").onclick = function () {
+            const ip = prompt("Enter receiver IP (e.g., 192.168.1.100):");
+            if (ip) {
+                fetch(`/start_streaming/${ip}`)
+                    .then(res => res.text())
+                    .then(msg => alert(msg))
+                    .catch(err => alert("Failed to start streaming: " + err));
+            }
+        };
+    </script>
+</body>
+</html>
