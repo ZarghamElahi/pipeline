@@ -1,5 +1,6 @@
-Flask==2.1.1
-pygame==2.1.3
-requests==2.26.0
-opencv-python==4.5.3.56
-ultralytics==8.0.0
+Flask
+pygame
+requests
+opencv-python
+ultralytics
+numpy
