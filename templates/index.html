@@ -6,7 +6,140 @@
     <title>YOLOv8 Detection Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    text-align: center;
+}
+
+.container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #00ffe7;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.tag {
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.red {
+    background-color: #ff4c4c;
+    color: white;
+}
+
+.orange {
+    background-color: #ffb347;
+    color: black;
+}
+
+.green {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.video-box {
+    width: 90%;
+    max-width: 800px;
+    border: 6px solid #00ffe7;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #00ffe7;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.video-box:hover {
+    transform: scale(1.02);
+}
+
+#video-feed {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.stream-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.stream-button {
+    padding: 12px 24px;
+    background-color: #00ffe7;
+    color: #121212;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.stream-button:hover {
+    background-color: #00cbb8;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #aaaaaa;
+}
+
+/* ✅ Responsive Tweaks */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .stream-button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .tag {
+        display: inline-block;
+        margin: 3px;
+        font-size: 0.9rem;
+    }
+
+    .stream-button {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+    </style>
 </head>
+    
 <body>
     <div class="container">
         <h1>🛠️ Live Pipeline Detection</h1>
