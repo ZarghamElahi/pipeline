@@ -9,7 +9,7 @@ import requests
 app = Flask(__name__)
 
 # Load YOLOv8 model
-model = YOLO("D:\\sheraz\\yolo_web_app\\best (1).pt")  # Replace with your model path
+model = YOLO("best (1).pt")  # Replace with your model path
 
 # Initialize Pygame for sound
 pygame.mixer.init()
