@@ -12,8 +12,14 @@ app = Flask(__name__)
 model = YOLO("best (1).pt")  # Replace with your model path
 
 # Initialize Pygame for sound
-pygame.mixer.init()
 beep_path = "beep.mp3"
+audio_enabled = True
+
+try:
+    pygame.mixer.init()
+except Exception as e:
+    print(f"⚠️ Audio init failed: {e}")
+    audio_enabled = False
 
 # Globals for streaming
 last_beep_time = 0
@@ -25,6 +31,9 @@ is_streaming = False
 camera_lock = threading.Lock()
 
 def play_beep():
+    if not audio_enabled:
+        print("🔕 Beep skipped (audio not initialized)")
+        return
     try:
         pygame.mixer.music.load(beep_path)
         pygame.mixer.music.play()
